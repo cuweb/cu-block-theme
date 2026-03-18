@@ -1,0 +1,23 @@
+{
+  "scripts": {
+    "build:css": "postcss src/styles.css -o assets/css/styles.css",
+    "build:editor": "postcss src/editor.css -o assets/css/editor.css",
+    "build:blocks": "postcss src/css/blocks/*.css --dir assets/css/blocks",
+    "build:js": "esbuild src/script.js --bundle --minify --outfile=assets/js/script.js",
+    "build": "npm run clean && npm run build:css && npm run build:editor && npm run build:blocks && npm run build:js",
+    "clean": "rm -rf assets/css && rm -rf assets/js",
+    "start:css": "postcss src/styles.css -o assets/css/styles.css --watch",
+    "start:editor": "postcss src/editor.css -o assets/css/editor.css --watch",
+    "start:blocks": "postcss src/css/blocks/*.css --dir assets/css/blocks --watch",
+    "start:js": "esbuild src/script.js --bundle --watch --outfile=assets/js/script.js",
+    "start": "run-p start:css start:editor start:blocks start:js"
+  },
+  "devDependencies": {
+    "cssnano": "^7.0.0",
+    "esbuild": "^0.27.4",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-import": "^16.0.0"
+  }
+}
