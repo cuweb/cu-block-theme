@@ -16,6 +16,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 // Instantiate our modules.
 $cu_block_theme_modules = array(
 	new CuBlockTheme\Enqueues(),
+	// new CuBlockTheme\UserRoles(),
 );
 
 foreach ( $cu_block_theme_modules as $cu_block_theme_module ) {

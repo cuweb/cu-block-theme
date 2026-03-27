@@ -23,6 +23,7 @@ class ComposerStaticInite86f46dd9f36e5d6e6a8469c367e1d4d
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'CuBlockTheme\\Enqueues' => __DIR__ . '/../..' . '/classes/class-enqueues.php',
+        'CuBlockTheme\\UserRoles' => __DIR__ . '/../..' . '/classes/class-user-roles.php',
         'PHPCSUtils\\AbstractSniffs\\AbstractArrayDeclarationSniff' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/AbstractSniffs/AbstractArrayDeclarationSniff.php',
         'PHPCSUtils\\BackCompat\\BCFile' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCFile.php',
         'PHPCSUtils\\BackCompat\\BCTokens' => __DIR__ . '/..' . '/phpcsstandards/phpcsutils/PHPCSUtils/BackCompat/BCTokens.php',
