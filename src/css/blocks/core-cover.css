@@ -1,4 +1,8 @@
 .wide-banner {
-    display: flex;
-    align-items: flex-end;
+    /* display: flex; */
+    /* align-items: flex-end; */
+}
+
+.wide-banner__content {
+    text-align: center;
 }
