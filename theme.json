@@ -1,8 +1,36 @@
 {
-	"$schema": "https://schemas.wp.org/wp/6.9/theme.json",
+	"$schema": "https://schemas.wp.org/wp/7.0/theme.json",
 	"version": 3,
 	"settings": {
 		"appearanceTools": true,
+		"blocks": {
+			"core/cover": {
+				"border": {
+					"color": false,
+					"radius": {
+						"bottomLeft": "12px",
+						"bottomRight": "12px",
+						"topLeft": "12px",
+						"topRight": "12px"
+					},
+					"style": false,
+					"width": false
+				},
+				"color": {
+					"custom": false,
+					"customDuotone": false,
+					"customGradient": false,
+					"defaultGradients": false,
+					"defaultPalette": false,
+					"palette": []
+				},
+				"typography": {
+					"customFontSize": false,
+					"defaultFontSizes": false,
+					"fontSizes": []
+				}
+			}
+		},
 		"color": {
 			"custom": false,
 			"customDuotone": false,
@@ -340,37 +368,7 @@
 				}
 			]
 		},
-		"useRootPaddingAwareAlignments": true,
-		"blocks": {
-			"core/cover": {
-				"border": {
-					"color": false,
-					"style": false,
-					"width": false,
-					"radius": {
-						"bottomLeft": "12px",
-						"bottomRight": "12px",
-						"topLeft": "12px",
-						"topRight": "12px"
-					}
-				},
-				"color": {
-					"custom": false,
-					"customDuotone": false,
-					"customGradient": false,
-					"defaultPalette": false,
-					"defaultGradients": false,
-					"defaultDuotones": false,
-					"palette": [],
-					"duotones": []
-				},
-				"typography": {
-					"customFontSize": false,
-					"defaultFontSizes": false,
-					"fontSizes": []
-				}
-			}
-		}
+		"useRootPaddingAwareAlignments": true
 	},
 	"styles": {
 		"blocks": {
