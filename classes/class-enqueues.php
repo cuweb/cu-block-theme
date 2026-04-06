@@ -19,6 +19,7 @@ class Enqueues {
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 20 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
+		add_action( 'init', array( $this, 'register_custom_blocks' ) );
 		add_action( 'init', array( $this, 'enqueue_block_styles' ) );
 		add_action( 'init', array( $this, 'register_pattern_categories' ) );
 	}
@@ -63,6 +64,31 @@ class Enqueues {
 				true
 			);
 		}
+	}
+
+	/**
+	 * Register custom block types.
+	 */
+	public function register_custom_blocks(): void {
+		$script_path = get_theme_file_path( 'assets/js/blocks/featured.js' );
+
+		if ( file_exists( $script_path ) ) {
+			wp_register_script(
+				'cu-block-theme-featured-block',
+				get_theme_file_uri( 'assets/js/blocks/featured.js' ),
+				array( 'wp-blocks', 'wp-block-editor', 'wp-components', 'wp-element', 'wp-i18n' ),
+				filemtime( $script_path ),
+				true
+			);
+		}
+
+		register_block_type(
+			'cu/featured',
+			array(
+				'api_version'   => 2,
+				'editor_script' => 'cu-block-theme-featured-block',
+			)
+		);
 	}
 
 	/**
