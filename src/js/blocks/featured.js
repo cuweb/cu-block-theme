@@ -27,9 +27,9 @@
 			cards: {
 				type: 'array',
 				default: [
-					{ imageUrl: '', imageAlt: '', text: '' },
-					{ imageUrl: '', imageAlt: '', text: '' },
-					{ imageUrl: '', imageAlt: '', text: '' },
+					{ imageUrl: '', imageAlt: '', title: '', description: '' },
+					{ imageUrl: '', imageAlt: '', title: '', description: '' },
+					{ imageUrl: '', imageAlt: '', title: '', description: '' },
 				],
 			},
 		},
@@ -51,8 +51,25 @@
 
 			function addCard() {
 				setAttributes( {
-					cards: cards.concat( [ { imageUrl: '', imageAlt: '', text: '' } ] ),
+					cards: cards.concat( [ { imageUrl: '', imageAlt: '', title: '', description: '' } ] ),
 				} );
+			}
+
+			function getCardTitle( card ) {
+				return card && card.title ? card.title : '';
+			}
+
+			function getCardDescription( card ) {
+				if ( card && card.description ) {
+					return card.description;
+				}
+
+				// Backward compatibility for previously saved cards.
+				if ( card && card.text ) {
+					return card.text;
+				}
+
+				return '';
 			}
 
 			function removeCard( index ) {
@@ -91,6 +108,9 @@
 					'div',
 					blockProps,
 					cards.map( function( card, index ) {
+						const titleValue = getCardTitle( card );
+						const descriptionValue = getCardDescription( card );
+
 						return el(
 							'div',
 							{ className: 'cu-featured-card', key: 'card-' + index },
@@ -137,13 +157,22 @@
 								)
 							),
 							el( RichText, {
-								tagName: 'p',
-								className: 'cu-featured-card__text',
-								value: card.text,
-								onChange: function( newText ) {
-									updateCard( index, { text: newText } );
+								tagName: 'h3',
+								className: 'cu-featured-card__title',
+								value: titleValue,
+								onChange: function( newTitle ) {
+									updateCard( index, { title: newTitle } );
 								},
-								placeholder: __( 'Add featured card text...', 'cu-block-theme' ),
+								placeholder: __( 'Add card title...', 'cu-block-theme' ),
+							} ),
+							el( RichText, {
+								tagName: 'p',
+								className: 'cu-featured-card__description',
+								value: descriptionValue,
+								onChange: function( newText ) {
+									updateCard( index, { description: newText } );
+								},
+								placeholder: __( 'Add card description...', 'cu-block-theme' ),
 							} ),
 							el(
 								Button,
@@ -176,6 +205,22 @@
 			const attributes = props.attributes;
 			const columns = Math.min( 4, Math.max( 1, attributes.columns || 3 ) );
 			const cards = Array.isArray( attributes.cards ) ? attributes.cards : [];
+
+			function getCardTitle( card ) {
+				return card && card.title ? card.title : '';
+			}
+
+			function getCardDescription( card ) {
+				if ( card && card.description ) {
+					return card.description;
+				}
+
+				if ( card && card.text ) {
+					return card.text;
+				}
+
+				return '';
+			}
 			const blockProps = blockEditor.useBlockProps.save( {
 				className: 'cu-featured-card-grid has-columns-' + columns,
 			} );
@@ -184,6 +229,9 @@
 				'div',
 				blockProps,
 				cards.map( function( card, index ) {
+					const titleValue = getCardTitle( card );
+					const descriptionValue = getCardDescription( card );
+
 					return el(
 						'div',
 						{ className: 'cu-featured-card', key: 'card-' + index },
@@ -197,11 +245,18 @@
 									className: 'cu-featured-card__image',
 								} )
 							),
-						el( RichText.Content, {
-							tagName: 'p',
-							className: 'cu-featured-card__text',
-							value: card.text,
-						} )
+						titleValue &&
+							el( RichText.Content, {
+								tagName: 'h3',
+								className: 'cu-featured-card__title',
+								value: titleValue,
+							} ),
+						descriptionValue &&
+							el( RichText.Content, {
+								tagName: 'p',
+								className: 'cu-featured-card__description',
+								value: descriptionValue,
+							} )
 					);
 				} )
 			);
