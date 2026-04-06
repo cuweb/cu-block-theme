@@ -1,3 +1,9 @@
+@media screen and (max-width: 768px) {
+    .wide-banner__inner-content {
+        max-width: 100% !important;
+    }
+}
+
 .wide-banner__content {
     text-align: center;
 }
