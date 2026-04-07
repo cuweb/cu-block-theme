@@ -21,6 +21,7 @@ class Enqueues {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'enqueue_block_styles' ) );
 		add_action( 'init', array( $this, 'register_pattern_categories' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_scripts' ) );
 	}
 
 	/**
@@ -97,5 +98,20 @@ class Enqueues {
 			'cu-block-theme-patterns',
 			array( 'label' => __( 'Carleton Patterns', 'cu-block-theme' ) )
 		);
+	}
+
+	public function enqueue_editor_scripts(): void {
+		$path    = get_theme_file_path( 'assets/js/editor.js' );
+		$version = file_exists( $path ) ? filemtime( $path ) : wp_get_theme()->get( 'Version' );
+
+		if ( file_exists( $path ) ) {
+			wp_enqueue_script(
+				'cu-block-theme-editor',
+				get_theme_file_uri( 'assets/js/editor.js' ),
+				array( 'wp-blocks', 'wp-dom-ready' ),
+				$version,
+				true
+			);
+		}
 	}
 }
