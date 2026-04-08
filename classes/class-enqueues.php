@@ -18,6 +18,7 @@ class Enqueues {
 	public function init(): void {
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 20 );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_styles' ), 20 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'register_custom_blocks' ) );
 		add_action( 'init', array( $this, 'enqueue_block_styles' ) );
@@ -37,6 +38,10 @@ class Enqueues {
 	 * Enqueue the frontend stylesheet with cache-busting.
 	 */
 	public function enqueue_styles(): void {
+		if ( wp_style_is( 'cu-block-theme-style', 'enqueued' ) ) {
+			return;
+		}
+
 		$path    = get_theme_file_path( 'assets/css/styles.css' );
 		$version = file_exists( $path ) ? filemtime( $path ) : wp_get_theme()->get( 'Version' );
 
@@ -108,7 +113,7 @@ class Enqueues {
 					'handle' => 'cu-block-theme-' . $filename,
 					'src'    => get_theme_file_uri( 'assets/css/blocks/' . $filename . '.css' ),
 					'path'   => $file,
-					'deps'   => array( 'cu-block-theme-style' ),
+					'deps'   => array(),
 					'ver'    => $version,
 				)
 			);
