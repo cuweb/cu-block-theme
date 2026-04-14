@@ -21,6 +21,7 @@ class Enqueues {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'enqueue_block_styles' ) );
 		add_action( 'init', array( $this, 'register_pattern_categories' ) );
+		add_filter( 'wp_theme_json_data_default', array( $this, 'inject_theme_json_defaults' ) );
 	}
 
 	/**
@@ -97,5 +98,30 @@ class Enqueues {
 			'cu-block-theme-patterns',
 			array( 'label' => __( 'Carleton Patterns', 'cu-block-theme' ) )
 		);
+	}
+
+	/**
+	 * Inject the library's theme.json as a WordPress default base layer.
+	 *
+	 * @param object $theme_json Theme JSON data object passed by WordPress.
+	 * @return object
+	 */
+	public function inject_theme_json_defaults( $theme_json ) {
+		$library_json_path = get_theme_file_path( 'theme-rds.json' );
+
+		if ( ! file_exists( $library_json_path ) ) {
+			return $theme_json;
+		}
+
+		$library_data = json_decode(
+			file_get_contents( $library_json_path ),
+			true
+		);
+
+		if ( ! is_array( $library_data ) ) {
+			return $theme_json;
+		}
+
+		return $theme_json->update_with( $library_data );
 	}
 }
