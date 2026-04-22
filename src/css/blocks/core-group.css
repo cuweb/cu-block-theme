@@ -1,0 +1,46 @@
+.wp-block-group.is-style-cu-card {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	overflow: hidden;
+	border: 1px solid var(--wp--preset--color--grey-light, #d6d6d6);
+	border-radius: 1rem;
+	background: var(--wp--preset--color--white, #ffffff);
+	box-shadow: var(--wp--preset--shadow--natural, 0 4px 10px rgb(0 0 0 / 8%));
+}
+
+.wp-block-group.is-style-cu-card > .wp-block-image {
+	margin: 0;
+}
+
+.wp-block-group.is-style-cu-card > .wp-block-image img {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.wp-block-group.is-style-cu-card > :is(.wp-block-heading, .wp-block-paragraph, .wp-block-buttons) {
+	padding-right: clamp(1rem, 1.5vw, 1.5rem);
+	padding-left: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.wp-block-group.is-style-cu-card > .wp-block-heading {
+	margin-top: 0;
+	margin-bottom: 0.5rem;
+	padding-top: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.wp-block-group.is-style-cu-card > .wp-block-paragraph {
+	margin-top: 0;
+	margin-bottom: 1rem;
+}
+
+.wp-block-group.is-style-cu-card > .wp-block-buttons {
+	margin-top: auto;
+	padding-bottom: clamp(1rem, 1.5vw, 1.5rem);
+}
+
+.editor-styles-wrapper .wp-block-group.is-style-cu-card {
+	min-height: 100%;
+}

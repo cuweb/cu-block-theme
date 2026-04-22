@@ -18,9 +18,12 @@ class Enqueues {
 	public function init(): void {
 		add_action( 'after_setup_theme', array( $this, 'setup' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), 20 );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_styles' ), 20 );
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
 		add_action( 'init', array( $this, 'enqueue_block_styles' ) );
+		add_action( 'init', array( $this, 'register_core_block_styles' ) );
 		add_action( 'init', array( $this, 'register_pattern_categories' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_scripts' ) );
 		add_filter( 'wp_theme_json_data_default', array( $this, 'inject_theme_json_defaults' ) );
 	}
 
@@ -37,6 +40,10 @@ class Enqueues {
 	 * Enqueue the frontend stylesheet with cache-busting.
 	 */
 	public function enqueue_styles(): void {
+		if ( wp_style_is( 'cu-block-theme-style', 'enqueued' ) ) {
+			return;
+		}
+
 		$path    = get_theme_file_path( 'assets/css/styles.css' );
 		$version = file_exists( $path ) ? filemtime( $path ) : wp_get_theme()->get( 'Version' );
 
@@ -67,6 +74,25 @@ class Enqueues {
 	}
 
 	/**
+	 * Enqueue editor-only scripts.
+	 */
+	public function enqueue_editor_scripts(): void {
+		$path = get_theme_file_path( 'assets/js/editor-cards.js' );
+
+		if ( ! file_exists( $path ) ) {
+			return;
+		}
+
+		wp_enqueue_script(
+			'cu-block-theme-editor-cards',
+			get_theme_file_uri( 'assets/js/editor-cards.js' ),
+			array( 'wp-blocks', 'wp-i18n' ),
+			filemtime( $path ),
+			true
+		);
+	}
+
+	/**
 	 * Auto-register block stylesheets from the blocks/ directory.
 	 */
 	public function enqueue_block_styles(): void {
@@ -83,11 +109,36 @@ class Enqueues {
 					'handle' => 'cu-block-theme-' . $filename,
 					'src'    => get_theme_file_uri( 'assets/css/blocks/' . $filename . '.css' ),
 					'path'   => $file,
-					'deps'   => array( 'cu-block-theme-style' ),
+					'deps'   => array(),
 					'ver'    => $version,
 				)
 			);
 		}
+	}
+
+	/**
+	 * Register style variations for core blocks used as cards.
+	 */
+	public function register_core_block_styles(): void {
+		if ( ! function_exists( 'register_block_style' ) ) {
+			return;
+		}
+
+		register_block_style(
+			'core/group',
+			array(
+				'name'  => 'cu-card',
+				'label' => __( 'CU Card', 'cu-block-theme' ),
+			)
+		);
+
+		register_block_style(
+			'core/columns',
+			array(
+				'name'  => 'cu-card-grid',
+				'label' => __( 'CU Card Grid', 'cu-block-theme' ),
+			)
+		);
 	}
 
 	/**

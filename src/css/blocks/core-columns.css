@@ -1,0 +1,11 @@
+.wp-block-columns.is-style-cu-card-grid {
+	align-items: stretch;
+}
+
+.wp-block-columns.is-style-cu-card-grid > .wp-block-column {
+	display: flex;
+}
+
+.wp-block-columns.is-style-cu-card-grid > .wp-block-column > .wp-block-group.is-style-cu-card {
+	flex: 1 1 auto;
+}
