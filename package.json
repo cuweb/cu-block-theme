@@ -1,10 +1,11 @@
 {
+  "packageManager": "pnpm@10.33.2",
   "scripts": {
     "build:css": "postcss src/styles.css -o assets/css/styles.css",
     "build:editor": "postcss src/editor.css -o assets/css/editor.css",
     "build:blocks": "postcss src/css/blocks/*.css --dir assets/css/blocks",
     "build:js": "esbuild src/script.js --bundle --minify --outfile=assets/js/script.js",
-    "build": "npm run clean && npm run build:css && npm run build:editor && npm run build:blocks && npm run build:js",
+    "build": "pnpm run clean && pnpm run build:css && pnpm run build:editor && pnpm run build:blocks && pnpm run build:js",
     "clean": "rm -rf assets/css && rm -rf assets/js",
     "start:css": "postcss src/styles.css -o assets/css/styles.css --watch",
     "start:editor": "postcss src/editor.css -o assets/css/editor.css --watch",
@@ -19,5 +20,10 @@
     "postcss": "^8.4.0",
     "postcss-cli": "^11.0.0",
     "postcss-import": "^16.0.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
   }
 }

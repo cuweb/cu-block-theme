@@ -35,13 +35,13 @@ A design-system-driven WordPress block theme built for Carleton University. Powe
 
 ```bash
 # Install front-end dependencies
-npm install
+pnpm install
 
 # Development — watch & rebuild on change
-npm run start
+pnpm run start
 
 # Production — clean build with minification
-npm run build
+pnpm run build
 ```
 
 ---
