@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<ruleset name="cu-block-theme">
+	<description>Coding standards for the Carleton Block Theme.</description>
+
+	<file>.</file>
+
+	<exclude-pattern>/vendor/*</exclude-pattern>
+	<exclude-pattern>/node_modules/*</exclude-pattern>
+	<exclude-pattern>/assets/*</exclude-pattern>
+
+	<arg name="extensions" value="php"/>
+	<arg name="colors"/>
+	<arg value="ps"/>
+
+	<rule ref="WordPress">
+		<exclude name="WordPress.WP.I18n"/>
+	</rule>
+
+	<config name="minimum_wp_version" value="6.4"/>
+
+	<rule ref="WordPress.Files.FileName">
+		<properties>
+			<property name="strict_class_file_names" value="false"/>
+		</properties>
+	</rule>
+</ruleset>

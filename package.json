@@ -13,8 +13,10 @@
 		"start": "run-p start:css start:blocks start:js",
 		"lint:js": "eslint .",
 		"lint:css": "stylelint \"src/**/*.{scss,css}\"",
-		"lint": "run-s lint:js lint:css",
-		"format": "prettier --write .",
+		"lint:php": "composer lint && composer phpstan",
+		"lint": "run-s lint:js lint:css lint:php",
+		"format": "prettier --write . && composer format",
+		"format:php": "composer format",
 		"format:check": "prettier --check ."
 	},
 	"devDependencies": {
