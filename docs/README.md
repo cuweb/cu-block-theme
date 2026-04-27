@@ -32,13 +32,13 @@ Welcome to the Carleton Block Theme documentation. These guides break down every
 
 ## Quick Reference
 
-| Topic | File |
-| --- | --- |
-| Design Tokens | [design-tokens.md](design-tokens.md) |
-| Colour System | [colour-system.md](colour-system.md) |
-| Typography | [typography.md](typography.md) |
-| Spacing & Layout | [spacing-and-layout.md](spacing-and-layout.md) |
-| Block Styles & Shadows | [block-styles.md](block-styles.md) |
-| Templates & Parts | [templates-and-parts.md](templates-and-parts.md) |
-| Project Structure | [project-structure.md](project-structure.md) |
-| Development Workflow | [development-workflow.md](development-workflow.md) |
+| Topic                  | File                                               |
+| ---------------------- | -------------------------------------------------- |
+| Design Tokens          | [design-tokens.md](design-tokens.md)               |
+| Colour System          | [colour-system.md](colour-system.md)               |
+| Typography             | [typography.md](typography.md)                     |
+| Spacing & Layout       | [spacing-and-layout.md](spacing-and-layout.md)     |
+| Block Styles & Shadows | [block-styles.md](block-styles.md)                 |
+| Templates & Parts      | [templates-and-parts.md](templates-and-parts.md)   |
+| Project Structure      | [project-structure.md](project-structure.md)       |
+| Development Workflow   | [development-workflow.md](development-workflow.md) |

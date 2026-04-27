@@ -10,34 +10,34 @@ All tokens use the `--rds--` namespace.
 
 ### Brand
 
-| Token | Value | Usage |
-| --- | --- | --- |
-| `--rds--color--primary-dark` | `#a21218` | Dark red accent, hover states |
-| `--rds--color--primary` | `#e91c24` | Carleton red — primary actions, links, brand highlights |
-| `--rds--color--secondary-dark` | `#2c3c4e` | Dark navy — secondary button backgrounds |
-| `--rds--color--secondary` | `#426587` | Navy blue — secondary accents, link hover states |
+| Token                          | Value     | Usage                                                   |
+| ------------------------------ | --------- | ------------------------------------------------------- |
+| `--rds--color--primary-dark`   | `#a21218` | Dark red accent, hover states                           |
+| `--rds--color--primary`        | `#e91c24` | Carleton red — primary actions, links, brand highlights |
+| `--rds--color--secondary-dark` | `#2c3c4e` | Dark navy — secondary button backgrounds                |
+| `--rds--color--secondary`      | `#426587` | Navy blue — secondary accents, link hover states        |
 
 ### Neutrals
 
-| Token | Value | Usage |
-| --- | --- | --- |
-| `--rds--color--black` | `#191919` | Body text, headings |
-| `--rds--color--grey-dark` | `#434343` | Captions, muted text |
-| `--rds--color--grey` | `#767676` | Borders, disabled states |
-| `--rds--color--grey-light` | `#d6d6d6` | Subtle borders, dividers |
-| `--rds--color--grey-lighter` | `#e6e6e6` | Light backgrounds |
-| `--rds--color--grey-pale` | `#f5f5f5` | Section backgrounds |
-| `--rds--color--grey-faint` | `#fafafa` | Hero / page-title backgrounds |
-| `--rds--color--white` | `#FFFFFF` | Default page background |
+| Token                        | Value     | Usage                         |
+| ---------------------------- | --------- | ----------------------------- |
+| `--rds--color--black`        | `#191919` | Body text, headings           |
+| `--rds--color--grey-dark`    | `#434343` | Captions, muted text          |
+| `--rds--color--grey`         | `#767676` | Borders, disabled states      |
+| `--rds--color--grey-light`   | `#d6d6d6` | Subtle borders, dividers      |
+| `--rds--color--grey-lighter` | `#e6e6e6` | Light backgrounds             |
+| `--rds--color--grey-pale`    | `#f5f5f5` | Section backgrounds           |
+| `--rds--color--grey-faint`   | `#fafafa` | Hero / page-title backgrounds |
+| `--rds--color--white`        | `#FFFFFF` | Default page background       |
 
 ### Feedback
 
-| Token | Value | Usage |
-| --- | --- | --- |
-| `--rds--color--success` | `#00a32a` | Success messages |
-| `--rds--color--warning` | `#dba617` | Warning messages |
-| `--rds--color--error` | `#d63638` | Error messages |
-| `--rds--color--info` | `#72aee6` | Informational messages |
+| Token                   | Value     | Usage                  |
+| ----------------------- | --------- | ---------------------- |
+| `--rds--color--success` | `#00a32a` | Success messages       |
+| `--rds--color--warning` | `#dba617` | Warning messages       |
+| `--rds--color--error`   | `#d63638` | Error messages         |
+| `--rds--color--info`    | `#72aee6` | Informational messages |
 
 ---
 
@@ -45,15 +45,15 @@ All tokens use the `--rds--` namespace.
 
 All spacing values use `min()` to cap their size at a viewport-relative maximum, creating a fluid scale that works across breakpoints.
 
-| Token | Value |
-| --- | --- |
-| `--rds--spacing-2x-small` | `0.25rem` |
-| `--rds--spacing-x-small` | `0.5rem` |
-| `--rds--spacing-small` | `min(0.75rem, 1vw)` |
-| `--rds--spacing-medium` | `min(1.5rem, 2vw)` |
-| `--rds--spacing-large` | `min(2.25rem, 3vw)` |
-| `--rds--spacing-x-large` | `min(3rem, 4vw)` |
-| `--rds--spacing-2x-large` | `min(4.5rem, 6vw)` |
+| Token                     | Value               |
+| ------------------------- | ------------------- |
+| `--rds--spacing-2x-small` | `0.25rem`           |
+| `--rds--spacing-x-small`  | `0.5rem`            |
+| `--rds--spacing-small`    | `min(0.75rem, 1vw)` |
+| `--rds--spacing-medium`   | `min(1.5rem, 2vw)`  |
+| `--rds--spacing-large`    | `min(2.25rem, 3vw)` |
+| `--rds--spacing-x-large`  | `min(3rem, 4vw)`    |
+| `--rds--spacing-2x-large` | `min(4.5rem, 6vw)`  |
 
 ---
 
@@ -61,47 +61,47 @@ All spacing values use `min()` to cap their size at a viewport-relative maximum,
 
 ### Font Families
 
-| Token | Value |
-| --- | --- |
-| `--rds--font-family-inter` | `Inter, sans-serif` |
+| Token                       | Value                                           |
+| --------------------------- | ----------------------------------------------- |
+| `--rds--font-family-inter`  | `Inter, sans-serif`                             |
 | `--rds--font-family-system` | `-apple-system, BlinkMacSystemFont, sans-serif` |
 
 ### Font Sizes (Fluid)
 
 Font sizes use `clamp()` to scale smoothly between a minimum and maximum value.
 
-| Token | Range |
-| --- | --- |
-| `--rds--font-size-small` | `0.875rem` → `1rem` |
-| `--rds--font-size-medium` | `1rem` → `1.125rem` |
-| `--rds--font-size-large` | `1.125rem` → `1.25rem` |
-| `--rds--font-size-x-large` | `1.25rem` → `1.5rem` |
+| Token                      | Range                  |
+| -------------------------- | ---------------------- |
+| `--rds--font-size-small`   | `0.875rem` → `1rem`    |
+| `--rds--font-size-medium`  | `1rem` → `1.125rem`    |
+| `--rds--font-size-large`   | `1.125rem` → `1.25rem` |
+| `--rds--font-size-x-large` | `1.25rem` → `1.5rem`   |
 
 ### Font Weights
 
-| Token | Value |
-| --- | --- |
+| Token                       | Value |
+| --------------------------- | ----- |
 | `--rds--font-weight-normal` | `400` |
-| `--rds--font-weight-bold` | `700` |
+| `--rds--font-weight-bold`   | `700` |
 
 ---
 
 ## Shadow Tokens
 
-| Token | Value |
-| --- | --- |
-| `--rds--shadow-natural` | `6px 6px 9px rgba(0, 0, 0, 0.2)` |
-| `--rds--shadow-deep` | `12px 12px 50px rgba(0, 0, 0, 0.4)` |
-| `--rds--shadow-sharp` | `6px 6px 0px rgba(0, 0, 0, 0.2)` |
+| Token                    | Value                                 |
+| ------------------------ | ------------------------------------- |
+| `--rds--shadow-natural`  | `6px 6px 9px rgba(0, 0, 0, 0.2)`      |
+| `--rds--shadow-deep`     | `12px 12px 50px rgba(0, 0, 0, 0.4)`   |
+| `--rds--shadow-sharp`    | `6px 6px 0px rgba(0, 0, 0, 0.2)`      |
 | `--rds--shadow-outlined` | `6px 6px 0px -3px #fff, 6px 6px #000` |
-| `--rds--shadow-crisp` | `6px 6px 0px #000` |
+| `--rds--shadow-crisp`    | `6px 6px 0px #000`                    |
 
 ---
 
 ## Border Radius Tokens
 
-| Token | Value |
-| --- | --- |
+| Token              | Value |
+| ------------------ | ----- |
 | `--rds--radius-sm` | `2px` |
 | `--rds--radius-md` | `4px` |
 | `--rds--radius-lg` | `8px` |
@@ -110,10 +110,10 @@ Font sizes use `clamp()` to scale smoothly between a minimum and maximum value.
 
 ## Layout Tokens
 
-| Token | Value |
-| --- | --- |
-| `--rds--layout-content-size` | `768px` |
-| `--rds--layout-wide-size` | `1280px` |
+| Token                        | Value    |
+| ---------------------------- | -------- |
+| `--rds--layout-content-size` | `768px`  |
+| `--rds--layout-wide-size`    | `1280px` |
 
 > **Note:** The `theme.json` layout sizes (`contentSize: 1024px`, `wideSize: 1280px`) govern WordPress block alignment widths. The CSS tokens above are available for custom layout work outside of the block system.
 

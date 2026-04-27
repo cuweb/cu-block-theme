@@ -17,17 +17,17 @@ A design-system-driven WordPress block theme built for Carleton University. Powe
 
 ## At a Glance
 
-| Feature | Details |
-| --- | --- |
-| WordPress | 6.4+ |
-| PHP | 7.4+ |
-| Theme JSON | Version 3 (WP 7.0 schema) |
-| Font | Inter — self-hosted, 6 weights |
-| Colour Palette | 12 brand & neutral colours |
-| Spacing Scale | 7-step responsive scale |
-| Shadow Presets | 5 styles (Natural → Crisp) |
-| Build Tools | PostCSS + esbuild |
-| Code Standards | WPCS via PHP_CodeSniffer |
+| Feature        | Details                        |
+| -------------- | ------------------------------ |
+| WordPress      | 6.4+                           |
+| PHP            | 7.4+                           |
+| Theme JSON     | Version 3 (WP 7.0 schema)      |
+| Font           | Inter — self-hosted, 6 weights |
+| Colour Palette | 12 brand & neutral colours     |
+| Spacing Scale  | 7-step responsive scale        |
+| Shadow Presets | 5 styles (Natural → Crisp)     |
+| Build Tools    | PostCSS + esbuild              |
+| Code Standards | WPCS via PHP_CodeSniffer       |
 
 ---
 

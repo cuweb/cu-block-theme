@@ -8,25 +8,25 @@ The Carleton Block Theme defines a curated 12-colour palette in `theme.json`. Wo
 
 ### Brand Colours
 
-| Name | Slug | Hex | Usage |
-| --- | --- | --- | --- |
-| Primary Dark | `primary-dark` | `#a21218` | Dark red accent, hover states |
-| Primary | `primary` | `#e91c24` | Carleton red — buttons, links, brand highlights |
-| Secondary Dark | `secondary-dark` | `#2c3c4e` | Secondary button background |
-| Secondary | `secondary` | `#426587` | Link hover, secondary accents |
+| Name           | Slug             | Hex       | Usage                                           |
+| -------------- | ---------------- | --------- | ----------------------------------------------- |
+| Primary Dark   | `primary-dark`   | `#a21218` | Dark red accent, hover states                   |
+| Primary        | `primary`        | `#e91c24` | Carleton red — buttons, links, brand highlights |
+| Secondary Dark | `secondary-dark` | `#2c3c4e` | Secondary button background                     |
+| Secondary      | `secondary`      | `#426587` | Link hover, secondary accents                   |
 
 ### Neutrals
 
-| Name | Slug | Hex | Usage |
-| --- | --- | --- | --- |
-| Black | `black` | `#191919` | Body text, headings |
-| Grey Dark | `grey-dark` | `#434343` | Captions, muted text |
-| Grey | `grey` | `#767676` | Borders, disabled states |
-| Grey Light | `grey-light` | `#d6d6d6` | Dividers, subtle borders |
-| Grey Lighter | `grey-lighter` | `#e6e6e6` | Light backgrounds |
-| Grey Pale | `grey-pale` | `#f5f5f5` | Section backgrounds (e.g. breadcrumb bar) |
-| Grey Faint | `grey-faint` | `#fafafa` | Hero sections, page title areas |
-| White | `white` | `#FFFFFF` | Default page background |
+| Name         | Slug           | Hex       | Usage                                     |
+| ------------ | -------------- | --------- | ----------------------------------------- |
+| Black        | `black`        | `#191919` | Body text, headings                       |
+| Grey Dark    | `grey-dark`    | `#434343` | Captions, muted text                      |
+| Grey         | `grey`         | `#767676` | Borders, disabled states                  |
+| Grey Light   | `grey-light`   | `#d6d6d6` | Dividers, subtle borders                  |
+| Grey Lighter | `grey-lighter` | `#e6e6e6` | Light backgrounds                         |
+| Grey Pale    | `grey-pale`    | `#f5f5f5` | Section backgrounds (e.g. breadcrumb bar) |
+| Grey Faint   | `grey-faint`   | `#fafafa` | Hero sections, page title areas           |
+| White        | `white`        | `#FFFFFF` | Default page background                   |
 
 ---
 
@@ -62,15 +62,15 @@ color: var(--rds--color--primary);
 
 ## Defaults
 
-| Surface | Colour |
-| --- | --- |
-| Page background | White (`#FFFFFF`) |
-| Body text | Black (`#191919`) |
-| Headings | Black (`#191919`) |
-| Links | Primary (`#e91c24`) |
-| Link hover | Secondary (`#426587`) |
-| Button background | Primary (`#e91c24`) |
-| Button text | White (`#FFFFFF`) |
+| Surface           | Colour                |
+| ----------------- | --------------------- |
+| Page background   | White (`#FFFFFF`)     |
+| Body text         | Black (`#191919`)     |
+| Headings          | Black (`#191919`)     |
+| Links             | Primary (`#e91c24`)   |
+| Link hover        | Secondary (`#426587`) |
+| Button background | Primary (`#e91c24`)   |
+| Button text       | White (`#FFFFFF`)     |
 
 ---
 
@@ -78,10 +78,10 @@ color: var(--rds--color--primary);
 
 Two gradient presets are available in the editor:
 
-| Name | Slug | Value |
-| --- | --- | --- |
+| Name            | Slug                     | Value                                               |
+| --------------- | ------------------------ | --------------------------------------------------- |
 | Red to Dark Red | `custom-red-to-dark-red` | `linear-gradient(135deg, #e91c24 0%, #191919 100%)` |
-| Fade In | `custom-fade-in` | `linear-gradient(135deg, #767676 0%, #191919 100%)` |
+| Fade In         | `custom-fade-in`         | `linear-gradient(135deg, #767676 0%, #191919 100%)` |
 
 Custom gradients are disabled — only these presets can be selected.
 
@@ -91,12 +91,12 @@ Custom gradients are disabled — only these presets can be selected.
 
 These colours are defined in `src/css/tokens.css` for use in custom CSS but are not part of the `theme.json` palette and will not appear in the editor colour picker.
 
-| Token | Hex | Usage |
-| --- | --- | --- |
-| `--rds--color--success` | `#00a32a` | Success states |
-| `--rds--color--warning` | `#dba617` | Warning states |
-| `--rds--color--error` | `#d63638` | Error states |
-| `--rds--color--info` | `#72aee6` | Informational states |
+| Token                   | Hex       | Usage                |
+| ----------------------- | --------- | -------------------- |
+| `--rds--color--success` | `#00a32a` | Success states       |
+| `--rds--color--warning` | `#dba617` | Warning states       |
+| `--rds--color--error`   | `#d63638` | Error states         |
+| `--rds--color--info`    | `#72aee6` | Informational states |
 
 ---
 
@@ -104,9 +104,9 @@ These colours are defined in `src/css/tokens.css` for use in custom CSS but are 
 
 The following editor controls are intentionally turned off in `theme.json`:
 
-| Setting | Value | Reason |
-| --- | --- | --- |
-| `color.custom` | `false` | Prevent arbitrary hex colours |
-| `color.customDuotone` | `false` | Restrict image tinting to brand values |
-| `color.customGradient` | `false` | Only allow preset gradients |
-| `color.defaultPalette` | `false` | Hide WordPress default colours |
+| Setting                | Value   | Reason                                 |
+| ---------------------- | ------- | -------------------------------------- |
+| `color.custom`         | `false` | Prevent arbitrary hex colours          |
+| `color.customDuotone`  | `false` | Restrict image tinting to brand values |
+| `color.customGradient` | `false` | Only allow preset gradients            |
+| `color.defaultPalette` | `false` | Hide WordPress default colours         |

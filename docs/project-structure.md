@@ -67,14 +67,14 @@ cu-block-theme/
 
 ## Key Files
 
-| File | Purpose |
-| --- | --- |
-| `theme.json` | The central configuration file. Defines colours, typography, spacing, shadows, layout widths, global styles, element styles, block-level styles, and template part registration. |
-| `functions.php` | Bootstraps the theme by loading Composer's autoloader and initializing PHP module classes. |
-| `style.css` | Contains only the WordPress theme header comment (name, version, license). No actual styles. |
-| `postcss.config.js` | Configures PostCSS with `postcss-import` (bundling) and `cssnano` (minification). |
-| `src/css/tokens.css` | Single source of truth for all design tokens as CSS custom properties. |
-| `classes/class-enqueues.php` | Handles front-end and editor asset loading, per-block stylesheet auto-registration, and pattern category registration. |
+| File                         | Purpose                                                                                                                                                                          |
+| ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `theme.json`                 | The central configuration file. Defines colours, typography, spacing, shadows, layout widths, global styles, element styles, block-level styles, and template part registration. |
+| `functions.php`              | Bootstraps the theme by loading Composer's autoloader and initializing PHP module classes.                                                                                       |
+| `style.css`                  | Contains only the WordPress theme header comment (name, version, license). No actual styles.                                                                                     |
+| `postcss.config.js`          | Configures PostCSS with `postcss-import` (bundling) and `cssnano` (minification).                                                                                                |
+| `src/css/tokens.css`         | Single source of truth for all design tokens as CSS custom properties.                                                                                                           |
+| `classes/class-enqueues.php` | Handles front-end and editor asset loading, per-block stylesheet auto-registration, and pattern category registration.                                                           |
 
 ---
 

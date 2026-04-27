@@ -92,8 +92,8 @@ A richer template for static pages, adding a breadcrumb-style navigation bar and
 - A 5px red top border (`--wp--preset--color--primary`) provides the signature Carleton brand stripe.
 - A 1px grey bottom border separates the header from page content.
 - Inner flex layout with two groups:
-  - **Left:** Site Logo (38px) + Site Title (Semi-Bold, X Large, fixed 100px width). The title links to the homepage and turns red on hover.
-  - **Right:** Two buttons — "Apply" (primary) and "Donate" (secondary style variation).
+    - **Left:** Site Logo (38px) + Site Title (Semi-Bold, X Large, fixed 100px width). The title links to the homepage and turns red on hover.
+    - **Right:** Two buttons — "Apply" (primary) and "Donate" (secondary style variation).
 
 ### Footer (`parts/footer.html`)
 
@@ -122,17 +122,17 @@ A richer template for static pages, adding a breadcrumb-style navigation bar and
 
 Templates and parts use several custom classes for targeted styling:
 
-| Class | Applied To | Purpose |
-| --- | --- | --- |
-| `.cu-site-header` | Header wrapper | Header-specific styles |
-| `.cu-site-header__section` | Header inner section | Flex layout container |
-| `.cu-site-header__logo` | Logo + title group | Logo area layout |
-| `.cu-site-title` | Site title block | Title-specific overrides |
-| `.cu-hero` | Page hero group | Hero section styles |
-| `.cu-main` | Main content group | Main area styles |
-| `.cu-content` | Post content block | Custom link styles |
-| `.cu-footer` | Footer wrapper | Footer-specific styles |
-| `.cu-footer__section` | Footer inner sections | Footer section layout |
+| Class                      | Applied To            | Purpose                  |
+| -------------------------- | --------------------- | ------------------------ |
+| `.cu-site-header`          | Header wrapper        | Header-specific styles   |
+| `.cu-site-header__section` | Header inner section  | Flex layout container    |
+| `.cu-site-header__logo`    | Logo + title group    | Logo area layout         |
+| `.cu-site-title`           | Site title block      | Title-specific overrides |
+| `.cu-hero`                 | Page hero group       | Hero section styles      |
+| `.cu-main`                 | Main content group    | Main area styles         |
+| `.cu-content`              | Post content block    | Custom link styles       |
+| `.cu-footer`               | Footer wrapper        | Footer-specific styles   |
+| `.cu-footer__section`      | Footer inner sections | Footer section layout    |
 
 ---
 
@@ -149,8 +149,8 @@ Templates and parts use several custom classes for targeted styling:
 
 ```json
 {
-  "area": "uncategorized",
-  "name": "sidebar",
-  "title": "Sidebar"
+	"area": "uncategorized",
+	"name": "sidebar",
+	"title": "Sidebar"
 }
 ```

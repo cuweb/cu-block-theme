@@ -8,10 +8,10 @@ The theme uses a responsive spacing scale and constrained layout system defined 
 
 Two layout widths are set globally and control how blocks align on the page:
 
-| Width | Value | Usage |
-| --- | --- | --- |
+| Width   | Value    | Usage                                                   |
+| ------- | -------- | ------------------------------------------------------- |
 | Content | `1024px` | Default width for paragraphs, headings, and most blocks |
-| Wide | `1280px` | Wide-aligned blocks like images, groups, and covers |
+| Wide    | `1280px` | Wide-aligned blocks like images, groups, and covers     |
 
 These values are applied through WordPress's constrained layout system. Blocks set to "Wide width" alignment will stretch to `1280px`, while default blocks stay within `1024px`.
 
@@ -29,15 +29,15 @@ The theme enables `useRootPaddingAwareAlignments`, which means:
 
 The theme replaces the default WordPress spacing presets with a 7-step scale. Smaller values are fixed; larger values use `min()` to cap at a viewport-relative maximum, creating a fluid feel on wide screens without over-spacing on small ones.
 
-| Name | Slug | Value | Approx. at 1440px |
-| --- | --- | --- | --- |
-| 2x Small | `20` | `0.25rem` | 4px |
-| X Small | `30` | `0.5rem` | 8px |
-| Small | `40` | `min(0.75rem, 1vw)` | ~12px |
-| Medium | `50` | `min(1.5rem, 2vw)` | ~24px |
-| Large | `60` | `min(2.25rem, 3vw)` | ~36px |
-| X Large | `70` | `min(3rem, 4vw)` | ~48px |
-| 2x Large | `80` | `min(4.5rem, 6vw)` | ~72px |
+| Name     | Slug | Value               | Approx. at 1440px |
+| -------- | ---- | ------------------- | ----------------- |
+| 2x Small | `20` | `0.25rem`           | 4px               |
+| X Small  | `30` | `0.5rem`            | 8px               |
+| Small    | `40` | `min(0.75rem, 1vw)` | ~12px             |
+| Medium   | `50` | `min(1.5rem, 2vw)`  | ~24px             |
+| Large    | `60` | `min(2.25rem, 3vw)` | ~36px             |
+| X Large  | `70` | `min(3rem, 4vw)`    | ~48px             |
+| 2x Large | `80` | `min(4.5rem, 6vw)`  | ~72px             |
 
 ### Using Spacing in the Editor
 
@@ -65,13 +65,13 @@ padding: var(--rds--spacing-medium);
 
 Defaults applied at the root level via `theme.json`:
 
-| Property | Value | Notes |
-| --- | --- | --- |
-| Block gap | `0` | No default vertical space between blocks — spacing is controlled per-template |
-| Padding top | `0` | — |
-| Padding bottom | `0` | — |
-| Padding left | `--wp--preset--spacing--50` (Medium) | Horizontal body padding |
-| Padding right | `--wp--preset--spacing--50` (Medium) | Horizontal body padding |
+| Property       | Value                                | Notes                                                                         |
+| -------------- | ------------------------------------ | ----------------------------------------------------------------------------- |
+| Block gap      | `0`                                  | No default vertical space between blocks — spacing is controlled per-template |
+| Padding top    | `0`                                  | —                                                                             |
+| Padding bottom | `0`                                  | —                                                                             |
+| Padding left   | `--wp--preset--spacing--50` (Medium) | Horizontal body padding                                                       |
+| Padding right  | `--wp--preset--spacing--50` (Medium) | Horizontal body padding                                                       |
 
 Setting `blockGap` to `0` means templates and groups explicitly control vertical rhythm rather than relying on a global default. This gives editors and template authors precise control over section spacing.
 

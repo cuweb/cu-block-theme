@@ -6,13 +6,13 @@ This guide covers the build tooling, project structure, and day-to-day developme
 
 ## Prerequisites
 
-| Tool | Version |
-| --- | --- |
-| Node.js | LTS recommended |
-| npm | Included with Node |
-| Composer | 2.x |
-| WordPress | 6.4+ |
-| PHP | 7.4+ |
+| Tool      | Version            |
+| --------- | ------------------ |
+| Node.js   | LTS recommended    |
+| npm       | Included with Node |
+| Composer  | 2.x                |
+| WordPress | 6.4+               |
+| PHP       | 7.4+               |
 
 ---
 
@@ -30,15 +30,15 @@ composer install
 
 ## Build Commands
 
-| Command | Description |
-| --- | --- |
-| `npm run build` | Clean output directories, then compile all CSS and JS for production |
-| `npm run start` | Watch all source files and rebuild automatically on change |
-| `npm run build:css` | Compile `src/styles.css` → `assets/css/styles.css` |
-| `npm run build:editor` | Compile `src/editor.css` → `assets/css/editor.css` |
-| `npm run build:blocks` | Compile `src/css/blocks/*.css` → `assets/css/blocks/` |
-| `npm run build:js` | Bundle `src/script.js` → `assets/js/script.js` (minified) |
-| `npm run clean` | Remove `assets/css/` and `assets/js/` |
+| Command                | Description                                                          |
+| ---------------------- | -------------------------------------------------------------------- |
+| `npm run build`        | Clean output directories, then compile all CSS and JS for production |
+| `npm run start`        | Watch all source files and rebuild automatically on change           |
+| `npm run build:css`    | Compile `src/styles.css` → `assets/css/styles.css`                   |
+| `npm run build:editor` | Compile `src/editor.css` → `assets/css/editor.css`                   |
+| `npm run build:blocks` | Compile `src/css/blocks/*.css` → `assets/css/blocks/`                |
+| `npm run build:js`     | Bundle `src/script.js` → `assets/js/script.js` (minified)            |
+| `npm run clean`        | Remove `assets/css/` and `assets/js/`                                |
 
 ### Watch Mode
 
@@ -57,11 +57,11 @@ All four run concurrently, so any change to a source file triggers an immediate 
 
 ### Tools
 
-| Tool | Purpose |
-| --- | --- |
-| PostCSS | CSS processing engine |
+| Tool           | Purpose                                                         |
+| -------------- | --------------------------------------------------------------- |
+| PostCSS        | CSS processing engine                                           |
 | postcss-import | Resolves `@import` statements, bundling multiple files into one |
-| cssnano | Minifies the output for production |
+| cssnano        | Minifies the output for production                              |
 
 ### Configuration
 
@@ -69,20 +69,20 @@ PostCSS is configured in `postcss.config.js`:
 
 ```js
 module.exports = {
-  plugins: [
-    require('postcss-import'),  // resolves @imports first
-    require('cssnano')({ preset: 'default' }),
-  ],
+	plugins: [
+		require('postcss-import'), // resolves @imports first
+		require('cssnano')({ preset: 'default' }),
+	],
 };
 ```
 
 ### Entry Points
 
-| Entry | Output | Purpose |
-| --- | --- | --- |
-| `src/styles.css` | `assets/css/styles.css` | Front-end stylesheet |
-| `src/editor.css` | `assets/css/editor.css` | Block editor stylesheet |
-| `src/css/blocks/*.css` | `assets/css/blocks/*.css` | Per-block stylesheets |
+| Entry                  | Output                    | Purpose                 |
+| ---------------------- | ------------------------- | ----------------------- |
+| `src/styles.css`       | `assets/css/styles.css`   | Front-end stylesheet    |
+| `src/editor.css`       | `assets/css/editor.css`   | Block editor stylesheet |
+| `src/css/blocks/*.css` | `assets/css/blocks/*.css` | Per-block stylesheets   |
 
 Both `src/styles.css` and `src/editor.css` import the same token and base files:
 
@@ -97,8 +97,8 @@ Additional layers (`layout.css`, `utilities.css`) are stubbed out and can be unc
 
 ## JavaScript Pipeline
 
-| Tool | Purpose |
-| --- | --- |
+| Tool    | Purpose                   |
+| ------- | ------------------------- |
 | esbuild | Bundling and minification |
 
 ### Entry Point
@@ -136,9 +136,9 @@ src/
 
 The theme uses [WordPress Coding Standards (WPCS)](https://github.com/WordPress/WordPress-Coding-Standards) via PHP_CodeSniffer, installed through Composer.
 
-| Command | Description |
-| --- | --- |
-| `composer lint` | Check PHP files against WPCS |
+| Command           | Description                         |
+| ----------------- | ----------------------------------- |
+| `composer lint`   | Check PHP files against WPCS        |
 | `composer format` | Auto-fix coding standard violations |
 
 ### Autoloading
@@ -147,9 +147,9 @@ PHP classes in `classes/` are autoloaded via Composer's classmap:
 
 ```json
 {
-  "autoload": {
-    "classmap": ["classes/"]
-  }
+	"autoload": {
+		"classmap": ["classes/"]
+	}
 }
 ```
 
@@ -161,13 +161,13 @@ After adding a new class, run `composer dump-autoload` to regenerate the classma
 
 The `CuBlockTheme\Enqueues` class in `classes/class-enqueues.php` handles all asset registration:
 
-| Hook | Method | What It Does |
-| --- | --- | --- |
-| `after_setup_theme` | `setup()` | Adds editor style support; loads `styles.css` and `editor.css` in the editor |
-| `wp_enqueue_scripts` | `enqueue_styles()` | Enqueues the front-end stylesheet with `filemtime()` cache-busting |
-| `wp_enqueue_scripts` | `enqueue_scripts()` | Enqueues the front-end JS bundle (only if the file exists) |
-| `init` | `enqueue_block_styles()` | Auto-registers all CSS files in `assets/css/blocks/` as block-specific stylesheets |
-| `init` | `register_pattern_categories()` | Registers the "Carleton Patterns" block pattern category |
+| Hook                 | Method                          | What It Does                                                                       |
+| -------------------- | ------------------------------- | ---------------------------------------------------------------------------------- |
+| `after_setup_theme`  | `setup()`                       | Adds editor style support; loads `styles.css` and `editor.css` in the editor       |
+| `wp_enqueue_scripts` | `enqueue_styles()`              | Enqueues the front-end stylesheet with `filemtime()` cache-busting                 |
+| `wp_enqueue_scripts` | `enqueue_scripts()`             | Enqueues the front-end JS bundle (only if the file exists)                         |
+| `init`               | `enqueue_block_styles()`        | Auto-registers all CSS files in `assets/css/blocks/` as block-specific stylesheets |
+| `init`               | `register_pattern_categories()` | Registers the "Carleton Patterns" block pattern category                           |
 
 ### Per-Block Auto-Registration
 
