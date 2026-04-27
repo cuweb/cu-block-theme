@@ -1,44 +1,33 @@
 # Documentation
 
-Welcome to the Carleton Block Theme documentation. These guides break down every layer of the design system, from foundational tokens to the templates that bring pages together.
+Find what you need by what you're trying to do.
 
----
+## Get started
 
-## Table of Contents
+| Doc                                   | What's in it                                |
+| ------------------------------------- | ------------------------------------------- |
+| [Getting started](getting-started.md) | Install, run, and the common commands       |
+| [Build pipeline](build-pipeline.md)   | How SCSS and JS compile                     |
+| [Linting & formatting](linting.md)    | ESLint, Stylelint, Prettier, PHPCS, PHPStan |
+| [Git hooks](git-hooks.md)             | Pre-commit checks via husky                 |
+| [CI](ci.md)                           | GitHub Actions on PRs and main              |
 
-### Design System
+## Design system
 
-1. **[Design Tokens](design-tokens.md)** — The foundational CSS custom properties for colours, spacing, typography, shadows, and layout. The single source of truth that powers every other layer.
+| Doc                               | What's in it                                  |
+| --------------------------------- | --------------------------------------------- |
+| [Design tokens](design-tokens.md) | The `--rds--*` CSS custom properties          |
+| [Colours](colours.md)             | Brand palette, gradients, editor restrictions |
+| [Typography](typography.md)       | Inter, fluid sizes, heading defaults          |
+| [Spacing](spacing.md)             | The 7-step scale and layout widths            |
+| [Shadows](shadows.md)             | The three shadow presets                      |
 
-2. **[Colour System](colour-system.md)** — The 12-colour brand palette, gradients, feedback colours, and the editor restrictions that keep content on-brand.
+## Theme
 
-3. **[Typography](typography.md)** — The Inter typeface, fluid font size scale, heading hierarchy, body text defaults, and element-level type styles.
-
-4. **[Spacing & Layout](spacing-and-layout.md)** — The 7-step responsive spacing scale, content and wide layout widths, root padding behaviour, and appearance tool settings.
-
-5. **[Block Styles & Shadows](block-styles.md)** — Button styling, shadow presets, per-block stylesheets, block style variations, and how to extend them.
-
-### Theme Architecture
-
-6. **[Templates & Template Parts](templates-and-parts.md)** — The index and page templates, header and footer parts, their structure, and the custom CSS classes used throughout.
-
-7. **[Project Structure](project-structure.md)** — A full directory map, key file descriptions, and the source-to-output build flow.
-
-### Development
-
-8. **[Development Workflow](development-workflow.md)** — Build commands, the PostCSS and esbuild pipelines, PHP linting, asset enqueueing, and how to add new styles, scripts, and blocks.
-
----
-
-## Quick Reference
-
-| Topic                  | File                                               |
-| ---------------------- | -------------------------------------------------- |
-| Design Tokens          | [design-tokens.md](design-tokens.md)               |
-| Colour System          | [colour-system.md](colour-system.md)               |
-| Typography             | [typography.md](typography.md)                     |
-| Spacing & Layout       | [spacing-and-layout.md](spacing-and-layout.md)     |
-| Block Styles & Shadows | [block-styles.md](block-styles.md)                 |
-| Templates & Parts      | [templates-and-parts.md](templates-and-parts.md)   |
-| Project Structure      | [project-structure.md](project-structure.md)       |
-| Development Workflow   | [development-workflow.md](development-workflow.md) |
+| Doc                                   | What's in it                             |
+| ------------------------------------- | ---------------------------------------- |
+| [Theme structure](theme-structure.md) | Directory map and key files              |
+| [Templates](templates.md)             | `index.html`, `page.html`, `single.html` |
+| [Template parts](template-parts.md)   | `header.html` and `footer.html`          |
+| [Block styles](block-styles.md)       | Per-block CSS and button variations      |
+| [Block patterns](block-patterns.md)   | The Carleton Patterns category           |

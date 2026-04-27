@@ -1,54 +1,54 @@
 # Carleton Block Theme
 
-A design-system-driven WordPress block theme built for Carleton University. Powered by `theme.json` v3, fluid typography, responsive spacing, and a modern PostCSS + esbuild build pipeline — delivering a consistent, branded experience from the editor to the front end.
+A design-system-driven WordPress block theme built for Carleton University. Powered by `theme.json` v3, fluid typography, responsive spacing, and a SCSS + esbuild build pipeline.
 
 ---
 
 ## Why This Theme?
 
-- **Brand consistency** — Carleton's red, navy, and neutral palette is baked into every block, ensuring on-brand pages without manual colour picking.
-- **Fluid & responsive** — Typography and spacing scale fluidly between viewports using `clamp()` and `min()`, so content looks great on any screen.
-- **Design tokens** — A single source of truth for colours, spacing, shadows, and typography lives in CSS custom properties, making updates effortless.
-- **Editor parity** — The same stylesheets load in the block editor, so what you see while editing is what visitors see on the front end.
-- **Per-block styling** — Block-specific stylesheets are auto-registered and only load when a block is present on the page, keeping performance lean.
-- **Zero lock-in** — Built entirely on WordPress core block APIs. No proprietary page builders, no plugin dependencies.
+- **Brand consistency** — Carleton's red, navy, and neutral palette is baked into every block.
+- **Fluid & responsive** — Typography and spacing scale with the viewport via `clamp()` and `min()`.
+- **Design tokens** — A single source of truth for colours, spacing, shadows, and typography lives in CSS custom properties.
+- **Editor parity** — The same stylesheets load in the block editor and on the front end.
+- **Per-block styling** — Block-specific stylesheets are auto-registered and only load when the block is present.
+- **Zero lock-in** — WordPress core block APIs only; no page builders, no plugin dependencies.
 
 ---
 
 ## At a Glance
 
-| Feature        | Details                        |
-| -------------- | ------------------------------ |
-| WordPress      | 6.4+                           |
-| PHP            | 7.4+                           |
-| Theme JSON     | Version 3 (WP 7.0 schema)      |
-| Font           | Inter — self-hosted, 6 weights |
-| Colour Palette | 12 brand & neutral colours     |
-| Spacing Scale  | 7-step responsive scale        |
-| Shadow Presets | 5 styles (Natural → Crisp)     |
-| Build Tools    | PostCSS + esbuild              |
-| Code Standards | WPCS via PHP_CodeSniffer       |
+| Feature        | Details                                            |
+| -------------- | -------------------------------------------------- |
+| WordPress      | 6.4+                                               |
+| PHP            | 8+                                                 |
+| Theme JSON     | Version 3                                          |
+| Font           | Inter — self-hosted, 3 weights × 2 styles          |
+| Colour Palette | 11 brand & neutral colours                         |
+| Spacing Scale  | 7-step responsive scale                            |
+| Shadow Presets | 3 (Natural, Sharp, Outlined)                       |
+| Build Tools    | sass + esbuild                                     |
+| Code Standards | ESLint, Stylelint, Prettier, PHPCS (WPCS), PHPStan |
+| CI             | GitHub Actions on PR and `main`                    |
+| Pre-commit     | husky + lint-staged                                |
 
 ---
 
 ## Quick Start
 
 ```bash
-# Install front-end dependencies
-pnpm install
+pnpm install     # front-end dependencies + husky setup
+composer install # PHP dependencies (PHPCS, PHPStan)
 
-# Development — watch & rebuild on change
-pnpm run start
-
-# Production — clean build with minification
-pnpm run build
+pnpm run start   # watch and rebuild on change
+pnpm run build   # production build
+pnpm run lint    # all linters: ESLint, Stylelint, PHPCS, PHPStan
 ```
 
 ---
 
 ## Documentation
 
-In-depth documentation for the design system, templates, and development workflow lives in the [`docs/`](docs/) directory. Start with the [Documentation Overview](docs/README.md).
+In-depth docs live in [`docs/`](docs/). Start with the [Documentation Overview](docs/README.md).
 
 ---
 
