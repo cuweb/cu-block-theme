@@ -1,0 +1,15 @@
+{
+	"extends": ["@wordpress/stylelint-config/scss"],
+	"overrides": [
+		{
+			"files": [
+				"src/css/layout.scss",
+				"src/css/utilities.scss",
+				"src/css/blocks/*.scss"
+			],
+			"rules": {
+				"no-empty-source": null
+			}
+		}
+	]
+}

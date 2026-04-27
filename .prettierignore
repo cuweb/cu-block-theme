@@ -1,0 +1,6 @@
+.claude/
+assets/
+node_modules/
+vendor/
+pnpm-lock.yaml
+composer.lock

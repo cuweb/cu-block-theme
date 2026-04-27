@@ -71,8 +71,13 @@ class Enqueues {
 	 */
 	public function enqueue_block_styles(): void {
 		$blocks_dir = get_theme_file_path( 'assets/css/blocks' );
+		$files      = glob( $blocks_dir . '/*.css' );
 
-		foreach ( glob( $blocks_dir . '/*.css' ) ?: array() as $file ) {
+		if ( ! is_array( $files ) ) {
+			$files = array();
+		}
+
+		foreach ( $files as $file ) {
 			$filename   = basename( $file, '.css' );
 			$block_name = str_replace( '-', '/', $filename );
 			$version    = filemtime( $file );
@@ -96,7 +101,7 @@ class Enqueues {
 	public function register_pattern_categories(): void {
 		register_block_pattern_category(
 			'cu-block-theme-patterns',
-			array( 'label' => __( 'Carleton Patterns', 'cu-block-theme' ) )
+			array( 'label' => 'Carleton Patterns' )
 		);
 	}
 
@@ -114,6 +119,7 @@ class Enqueues {
 		}
 
 		$library_data = json_decode(
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- reading a local theme file.
 			file_get_contents( $library_json_path ),
 			true
 		);

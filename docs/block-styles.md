@@ -1,111 +1,84 @@
-# Block Styles & Shadows
+# Block styles
 
-The theme customizes the appearance of core WordPress blocks through `theme.json` styles and JSON-based block style variations. It also provides a set of shadow presets available across any block that supports shadows.
+Core blocks are styled three ways: `theme.json` block-level defaults, JSON style variations, and per-block SCSS files.
 
----
+## 1. theme.json block defaults
 
-## Button Block (`core/button`)
+Set in [`theme.json`](../theme.json) under `styles.blocks`.
 
-### Default Appearance
+### `core/button`
 
-| Property | Value |
-| --- | --- |
-| Background | Primary red (`#e91c24`) |
-| Text | White (`#FFFFFF`) |
-| Border radius | `4px` (all corners) |
-| Font size | `small` |
-| Padding | `0.25rem` top/bottom, `min(0.75rem, 1vw)` left/right |
+| Property             | Value                                      |
+| -------------------- | ------------------------------------------ |
+| Border radius        | 4px (all corners)                          |
+| Padding (vertical)   | `spacing--20`                              |
+| Padding (horizontal) | `spacing--40`                              |
+| Font size            | `small`                                    |
+| Background           | Primary (default, set in `theme-rds.json`) |
+| Text                 | White (default, set in `theme-rds.json`)   |
 
-### Button Group Spacing (`core/buttons`)
+### `core/buttons`
 
-The `core/buttons` block uses a gap of `0.5rem` between buttons, both horizontally and vertically.
+| Property  | Value                   |
+| --------- | ----------------------- |
+| Block gap | `spacing--30` (X Small) |
 
-### Secondary Button Variation
+### `core/navigation`
 
-A "Secondary" style variation is registered via `styles/buttons/secondary.json`:
+| Property    | Value   |
+| ----------- | ------- |
+| Font size   | `small` |
+| Font style  | Normal  |
+| Font weight | 400     |
 
-| Property | Value |
-| --- | --- |
+## 2. Style variations (JSON)
+
+Files in `styles/` register named variations that show up in the block's Styles panel.
+
+### `styles/buttons/secondary.json`
+
+A "Secondary" style for `core/button`:
+
+| Property   | Value                      |
+| ---------- | -------------------------- |
 | Background | Secondary Dark (`#2c3c4e`) |
-| Text | White (`#FFFFFF`) |
+| Text       | White                      |
 
-This variation appears in the block editor's Styles panel when a Button block is selected. Apply it by choosing **Secondary** from the style options.
+WordPress auto-discovers anything in `styles/`. No PHP registration needed.
 
-### Creating New Button Variations
+### Adding a new variation
 
-Add a new JSON file in `styles/buttons/` following this structure:
+Drop a file in `styles/<block-area>/<slug>.json`:
 
 ```json
 {
-  "$schema": "https://schemas.wp.org/trunk/theme.json",
-  "version": 3,
-  "slug": "your-slug",
-  "title": "Your Label",
-  "blockTypes": ["core/button"],
-  "styles": {
-    "color": {
-      "background": "var:preset|color|your-color",
-      "text": "var:preset|color|white"
-    }
-  }
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"slug": "your-slug",
+	"title": "Your Label",
+	"blockTypes": ["core/button"],
+	"styles": {
+		"color": {
+			"background": "var:preset|color|primary-dark",
+			"text": "var:preset|color|white"
+		}
+	}
 }
 ```
 
----
+## 3. Per-block SCSS
 
-## Navigation Block (`core/navigation`)
+Files in `src/css/blocks/` named `core-blockname.scss` compile to `assets/css/blocks/core-blockname.css`. The `Enqueues` class scans that output directory and registers each via `wp_enqueue_block_style()` — so the CSS only ships when the block is on the page.
 
-| Property | Value |
-| --- | --- |
-| Font size | `small` |
-| Font weight | 400 (Regular) |
-| Font style | Normal |
+| File               | Block         |
+| ------------------ | ------------- |
+| `core-button.scss` | `core/button` |
+| `core-table.scss`  | `core/table`  |
 
----
+Both files are currently empty stubs — placeholders for block-specific style additions.
 
-## Per-Block Stylesheets
+### Adding styles for a new block
 
-The theme supports per-block CSS files in `src/css/blocks/`. Each file is named using the pattern `core-blockname.css` (e.g. `core-button.css`, `core-table.css`).
-
-These files are:
-
-1. Compiled by PostCSS into `assets/css/blocks/`
-2. Auto-registered by the `Enqueues` class using `wp_enqueue_block_style()`
-3. Only loaded on pages where the corresponding block is used
-
-This approach keeps the main stylesheet lean and avoids loading unnecessary CSS.
-
-### Current Block Stylesheets
-
-| File | Block |
-| --- | --- |
-| `core-button.css` | `core/button` |
-| `core-table.css` | `core/table` |
-
-To add styles for a new block, create a CSS file in `src/css/blocks/` named `core-blockname.css`. It will be picked up automatically on the next build.
-
----
-
-## Shadow Presets
-
-Five shadow presets are available in the editor for any block that supports the shadow control:
-
-| Name | Slug | Value | Character |
-| --- | --- | --- | --- |
-| Natural | `natural` | `6px 6px 9px rgba(0, 0, 0, 0.2)` | Soft, realistic |
-| Deep | `deep` | `12px 12px 50px rgba(0, 0, 0, 0.4)` | Dramatic, elevated |
-| Sharp | `sharp` | `6px 6px 0px rgba(0, 0, 0, 0.2)` | Flat, offset |
-| Outlined | `outlined` | `6px 6px 0px -3px #fff, 6px 6px #000` | Retro, outlined |
-| Crisp | `crisp` | `6px 6px 0px #000` | Bold, graphic |
-
-### Using Shadows in CSS
-
-```css
-box-shadow: var(--wp--preset--shadow--natural);
-```
-
-Or the design-token equivalent:
-
-```css
-box-shadow: var(--rds--shadow-natural);
-```
+1. Create `src/css/blocks/core-<blockname>.scss`.
+2. `pnpm run build:blocks` (or let `pnpm run start` rebuild on save).
+3. The auto-registration handles the rest.

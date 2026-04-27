@@ -1,9 +1,11 @@
 <?php
 /**
- * Carleton Block Theme Functions
+ * Carleton Block Theme Functions.
+ *
+ * @package CuBlockTheme
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -16,6 +18,7 @@ if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
 // Instantiate our modules.
 $cu_block_theme_modules = array(
 	new CuBlockTheme\Enqueues(),
+	// phpcs:ignore Squiz.Commenting.InlineComment.InvalidEndChar,Squiz.PHP.CommentedOutCode.Found -- UserRoles is available but disabled.
 	// new CuBlockTheme\UserRoles(),
 );
 

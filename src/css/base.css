@@ -1,9 +1,0 @@
-.cu-content a {
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.cu-content a:hover {
-    color: var(--wp--preset--color--secondary);
-    text-decoration: underline;
-}
