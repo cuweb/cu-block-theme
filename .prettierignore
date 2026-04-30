@@ -2,5 +2,6 @@
 assets/
 node_modules/
 vendor/
+src/rds/
 pnpm-lock.yaml
 composer.lock
