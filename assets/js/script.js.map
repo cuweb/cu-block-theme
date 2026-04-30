@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/js/console.js"],
-  "sourcesContent": ["// eslint-disable-next-line no-console -- development indicator that the bundle loaded.\nconsole.log('iDocs block theme script loaded');\n"],
-  "mappings": ";;AACA,UAAQ,IAAI,iCAAiC;",
-  "names": []
-}
