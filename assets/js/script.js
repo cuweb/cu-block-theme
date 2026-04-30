@@ -1,1 +1,5 @@
-(()=>{console.log("iDocs block theme script loaded");})();
+(() => {
+  // src/js/console.js
+  console.log("iDocs block theme script loaded");
+})();
+//# sourceMappingURL=script.js.map

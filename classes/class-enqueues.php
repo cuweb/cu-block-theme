@@ -112,7 +112,7 @@ class Enqueues {
 	 * @return object
 	 */
 	public function inject_theme_json_defaults( $theme_json ) {
-		$library_json_path = get_theme_file_path( 'theme-rds.json' );
+		$library_json_path = get_theme_file_path( 'src/rds/theme-rds.json' );
 
 		if ( ! file_exists( $library_json_path ) ) {
 			return $theme_json;

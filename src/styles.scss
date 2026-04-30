@@ -1,4 +1,6 @@
-@use "./css/tokens";
+// RDS Imports
+@use "./rds/tokens";
+@use "./rds/typography";
+
+// Theme Imports
 @use "./css/base";
-// @use './css/layout';
-// @use './css/utilities';
