@@ -1,1 +1,1 @@
-(()=>{console.log("iDocs block theme script loaded");})();
+(()=>{console.log("cu block theme script loaded");})();
