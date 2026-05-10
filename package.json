@@ -36,17 +36,17 @@
 		]
 	},
 	"devDependencies": {
-		"@wordpress/eslint-plugin": "^25.0.0",
-		"@wordpress/prettier-config": "^4.44.0",
-		"@wordpress/stylelint-config": "^23.36.0",
-		"esbuild": "^0.27.4",
-		"eslint": "^10.2.1",
+		"@wordpress/eslint-plugin": "^25.1.0",
+		"@wordpress/prettier-config": "^4.45.0",
+		"@wordpress/stylelint-config": "^23.37.0",
+		"esbuild": "^0.28.0",
+		"eslint": "^10.3.0",
 		"husky": "^9.1.7",
-		"lint-staged": "^16.4.0",
+		"lint-staged": "^17.0.4",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^3.8.3",
-		"sass": "^1.83.0",
-		"stylelint": "^16.26.1"
+		"sass": "^1.99.0",
+		"stylelint": "^17.11.0"
 	},
 	"pnpm": {
 		"onlyBuiltDependencies": [
