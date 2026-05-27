@@ -3,7 +3,7 @@
 	"prettier": "@wordpress/prettier-config",
 	"scripts": {
 		"clean": "rm -rf assets/css assets/js",
-		"build:css": "sass src/styles.scss:assets/css/styles.css src/editor.scss:assets/css/editor.css --style=compressed --no-source-map",
+		"build:css": "sass src/styles.scss:assets/css/styles.css src/editor.scss:assets/css/editor.css --load-path=node_modules --style=compressed --no-source-map",
 		"build:blocks": "sass src/css/blocks:assets/css/blocks --style=compressed --no-source-map",
 		"build:js": "esbuild src/script.js --bundle --minify --outfile=assets/js/script.js",
 		"build": "pnpm run clean && run-p build:css build:blocks build:js",
@@ -55,6 +55,6 @@
 		]
 	},
 	"dependencies": {
-		"@cuweb/rds2": "0.5.3"
+		"@cuweb/rds2": "0.5.11"
 	}
 }
