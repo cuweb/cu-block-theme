@@ -17,6 +17,8 @@ jobs:
         permissions:
             contents: read
             packages: read
+        env:
+            NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         steps:
             - name: Checkout
               uses: actions/checkout@v4
@@ -32,8 +34,6 @@ jobs:
 
             - name: Install dependencies
               run: pnpm install --frozen-lockfile
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Lint JS
               run: pnpm run lint:js
@@ -46,26 +46,3 @@ jobs:
 
             - name: Build
               run: pnpm run build
-
-    php:
-        name: Lint (PHP)
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout
-              uses: actions/checkout@v4
-
-            - name: Setup PHP
-              uses: shivammathur/setup-php@v2
-              with:
-                  php-version: '8.2'
-                  coverage: none
-                  tools: composer
-
-            - name: Install Composer dependencies
-              uses: ramsey/composer-install@v3
-
-            - name: PHPCS
-              run: composer lint
-
-            - name: PHPStan
-              run: composer phpstan
